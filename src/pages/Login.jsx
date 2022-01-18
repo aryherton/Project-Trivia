@@ -58,7 +58,7 @@ class Login extends Component {
     setTokenLocalStorage(token);
   }
 
-   testando = () => {
+   renderConfig = () => {
      const { showConfig } = this.state;
      const toggle = showConfig;
      this.setState({ showConfig: !toggle });
@@ -135,7 +135,7 @@ class Login extends Component {
               dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white
               dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
                type="button"
-               onClick={ () => this.testando() }
+               onClick={ () => this.renderConfig() }
                data-testid="btn-settings"
              >
                Config
