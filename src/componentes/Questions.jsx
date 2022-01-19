@@ -23,6 +23,7 @@ export default class Questions extends Component {
       changeStartTime,
       nextPage,
     } = this.props;
+
     return (
       <div>
         { results && code === 0 ? (
