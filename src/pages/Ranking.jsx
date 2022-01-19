@@ -12,7 +12,7 @@ class Ranking extends Component {
     const NEGATIVEORDER = -1;
 
     return (
-      <div className="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen pt-4">
+      <div className=" bg-gradient-to-r from-purple-900 to-gray-900 min-h-screen pt-4">
         <h1
           data-testid="ranking-title"
           className="text-center text-4xl text-white font-bold"

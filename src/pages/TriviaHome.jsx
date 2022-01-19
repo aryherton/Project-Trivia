@@ -190,7 +190,10 @@ class TriviaHome extends Component {
           <div className="w-1/6 sm:hidden bg-gray-100">
             <RankingScores />
           </div>
-          <div className="flex flex-col items-center w-5/6 sm:w-full bg-slate-800">
+          <div
+            className="flex flex-col items-center w-5/6 sm:w-full
+           bg-gradient-to-r from-purple-900 to-gray-900"
+          >
             <Header />
             <Questions
               results={ results }

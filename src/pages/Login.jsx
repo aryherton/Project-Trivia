@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { setLoginToken } from '../action/thunk';
 import { setTokenLocalStorage } from '../server';
 import { setPlayer } from '../action';
@@ -72,7 +72,7 @@ class Login extends Component {
      return (
        <div
          className="h-screen w-screen flex justify-center items-center
-        bg-gradient-to-r from-gray-800 to-gray-900"
+         bg-gradient-to-r from-purple-900 to-gray-900"
        >
          <div
            className="bg-gray-100 w-4/5 h-4/5 flex flex-row justify-center

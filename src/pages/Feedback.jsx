@@ -17,7 +17,7 @@ class Feedback extends Component {
   render() {
     const { history, score, assertions } = this.props;
     return (
-      <div className="bg-gradient-to-r from-gray-800 to-gray-900">
+      <div className=" bg-gradient-to-r from-purple-900 to-gray-900">
         <Header />
         <div className="flex h-screen place-content-center">
           <div
