@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { render } from 'react-dom';
 import { setLoginToken } from '../action/thunk';
 import { setTokenLocalStorage } from '../server';
 import { setPlayer } from '../action';
@@ -75,7 +76,7 @@ class Login extends Component {
        >
          <div
            className="bg-gray-100 w-4/5 h-4/5 flex flex-row justify-center
-          shadow-2xl shadow-gray-900"
+          shadow-2xl shadow-gray-900 rounded-3xl"
          >
            <div
              className="w-2/5 px-8 py-8 h-full"
@@ -116,11 +117,11 @@ class Login extends Component {
                />
              </label>
              <button
-               className="w-full mt-5 text-white bg-gradient-to-r from-purple-500
+               className="w-full text-xl mt-5 text-white bg-gradient-to-r from-purple-500
               via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
               focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg
               shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
-              font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                type="button"
                onClick={ () => { dispatch(setPlayer(this.state)); this.getApiToken(); } }
                data-testid="btn-play"
@@ -129,9 +130,9 @@ class Login extends Component {
                Play
              </button>
              <button
-               className="w-full mt-5 text-yellow-400 hover:text-white border
+               className="w-full mt-5 text-xl text-yellow-400 font-bold hover:text-white border
               border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300
-              font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
+              rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
               dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white
               dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
                type="button"
@@ -140,17 +141,17 @@ class Login extends Component {
              >
                Config
              </button>
+             <div>
+               {(!showConfig) && <ConfigInfo />}
+             </div>
            </div>
-           <div className="flex w-3/5 bg-neutral-700">
-             <img
+           <div className=" rounded-r-3xl flex w-3/5 bg-neutral-700">
+             { (showConfig) ? <ConfigTrivia renderConfig={ this.renderConfig } /> : <img
                src={ logo }
                alt="trivia-logo"
                className="bg-center bg-no-repeat bg-auto"
-             />
+             /> }
            </div>
-
-           {(showConfig) && <ConfigTrivia />}
-           {(!showConfig) && <ConfigInfo />}
 
          </div>
        </div>

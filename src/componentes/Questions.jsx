@@ -35,7 +35,7 @@ export default class Questions extends Component {
                 className="my-2.5 text-2xl font-bold sm:text-lg"
                 data-testid="question-category"
               >
-                {results[page].category}
+                {decodeURIComponent(results[page].category)}
               </h2>
 
               <Time
@@ -45,12 +45,12 @@ export default class Questions extends Component {
               />
             </div>
 
-            <div className="bg-gray-100 my-6 p-14 sm:p-6 w-9/12 rounded-2xl">
+            <div className="text-xl bg-gray-100 my-6 p-14 sm:p-6 w-9/12 rounded-2xl">
               <p
                 data-testid="question-text"
                 className="break-all text-center"
               >
-                {results[page].question}
+                {decodeURIComponent(results[page].question)}
               </p>
             </div>
 
@@ -59,12 +59,12 @@ export default class Questions extends Component {
                 <button
                   key={ index }
                   className={
-                    `text-purple-700 hover:text-white border border-purple-700
-                    hover:bg-purple-800 font-medium rounded-lg text-sm px-4 py-4 
+                    `text-white text-xl
+                    bg-gray-600 hover:bg-purple-800 font-medium rounded-lg text-sm px-4 py-4 
                     text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400
                     dark:hover:text-white dark:hover:bg-purple-500 
                     dark:focus:ring-purple-900 cursor-pointer
-                    my-2.5 w-full break-all
+                    my-2.5 w-full break-all 
                     ${answer === results[page].correct_answer ? valid : error}`
                   }
                   data-testid={ testAnswersTestID(answer) }
@@ -80,7 +80,7 @@ export default class Questions extends Component {
                     );
                   } }
                 >
-                  {answer}
+                  {decodeURIComponent(answer)}
 
                 </button>
               ))}

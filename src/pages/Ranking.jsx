@@ -12,7 +12,7 @@ class Ranking extends Component {
     const NEGATIVEORDER = -1;
 
     return (
-      <div className="bg-teal-600 min-h-screen pt-4">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen pt-4">
         <h1
           data-testid="ranking-title"
           className="text-center text-4xl text-white font-bold"
@@ -30,7 +30,7 @@ class Ranking extends Component {
           </button>
         </div>
         <div className="flex justify-center w-full">
-          <ul className="flex flex-col items-center bg-white w-4/6 rounded-3xl py-6 mb-4">
+          <ul className="flex flex-col items-center bg-white bg-opacity-5 w-4/6 rounded-3xl py-6 mb-4">
             { JSON.parse(getRankingLocalStorage()).sort((a, b) => {
               if (a.score < b.score) {
                 return 1;
@@ -42,7 +42,7 @@ class Ranking extends Component {
             }).map((obj, key) => (
               <div
                 key={ key }
-                className="flex mb-4 gap-4 bg-teal-300 w-4/5 rounded-full"
+                className="flex mb-4 gap-4 text-xl text-white bg-gradient-to-r from-gray-800 to-gray-900 w-4/5 rounded-full"
               >
                 <li>
                   <img

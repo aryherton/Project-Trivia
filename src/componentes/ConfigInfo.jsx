@@ -6,7 +6,7 @@ export default class ConfigInfo extends Component {
     const configLocalStorage = getConfigLocalStorage();
     const { category, difficulty, type } = configLocalStorage;
     const categoryArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8',
-      'General Knowledg',
+      'General Knowledge',
       'Entertainment: Books',
       'Entertainment: Film',
       'Entertainment: Music',
@@ -33,10 +33,22 @@ export default class ConfigInfo extends Component {
 
     ];
     return (
-      <div>
-        <p>{categoryArr[category]}</p>
-        <p>{difficulty}</p>
-        <p>{type}</p>
+      <div className="my-10 text-lg">
+        <p className="text-gray-600 p-1">
+          <span className="font-bold">Category:</span>
+          {' '}
+          {categoryArr[category]}
+        </p>
+        <p className="text-gray-600 p-1">
+          <span className="font-bold">Difficulty:</span>
+          {' '}
+          {difficulty}
+        </p>
+        <p className="text-gray-600 p-1">
+          <span className="font-bold">Type:</span>
+          {' '}
+          {type}
+        </p>
       </div>);
   }
 

@@ -38,11 +38,12 @@ export default class ConfigTrivia extends Component {
 
   render() {
     const { saveSucessfull } = this.state;
+    const { renderConfig } = this.props;
     return (
-      <div>
-        <h1 data-testid="settings-title">Configuração</h1>
-        <form onChange={ this.setLocalState }>
-          <select name="category">
+      <div className="flex m-auto">
+        <form className="flex flex-col" onChange={ this.setLocalState }>
+          <h1 className="text-white text-2xl my-10" data-testid="settings-title">Configuração</h1>
+          <select className="p-4 rounded-xl" name="category">
             <option value="any">Any Category</option>
             <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
@@ -69,22 +70,27 @@ export default class ConfigTrivia extends Component {
             <option value="31">Entertainment: Japanese Anime Manga</option>
             <option value="32">Entertainment: Cartoon Animations</option>
           </select>
-          <select name="difficulty">
+          <select className="my-10 p-4 rounded-xl" name="difficulty">
             <option value="any">Any Difficulty</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
-          <select name="type">
+          <select className="p-4 rounded-xl" name="type">
             <option value="any">Any Type</option>
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True / False</option>
           </select>
           <button
+            className=" disabled:opacity-50 w-full text-xl mt-10 text-white bg-gradient-to-r from-purple-500
+              via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
+              focus:ring-purple-300 dark:focus:ring-purple-800 hover:shadow-lg
+              shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+              font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             type="button"
             disabled={ this.disabledButton() }
             onClick={ () => {
-              setConfigLocalStorage(this.state); this.saveChange();
+              setConfigLocalStorage(this.state); renderConfig();
             } }
           >
             Salvar
