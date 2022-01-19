@@ -25,17 +25,48 @@ export default class Questions extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div
+        className="flex items-start w-full p-3 pb-9"
+      >
         { results && code === 0 ? (
-          <div>
-            <h2 data-testid="question-category">{results[page].category}</h2>
-            <p data-testid="question-text">{results[page].question}</p>
+          <div className="flex flex-col flex-auto justify-center items-center w-full">
+            <div className="flex justify-between items-center w-9/12 text-gray-200">
+              <h2
+                className="my-2.5 text-2xl font-bold sm:text-lg"
+                data-testid="question-category"
+              >
+                {results[page].category}
+              </h2>
 
-            <div data-testid="answer-options">
+              <Time
+                disableButtons={ disableButtons }
+                startTime={ startTime }
+                changeStartTime={ changeStartTime }
+              />
+            </div>
+
+            <div className="bg-gray-100 my-6 p-14 sm:p-6 w-9/12 rounded-2xl">
+              <p
+                data-testid="question-text"
+                className="break-all text-center"
+              >
+                {results[page].question}
+              </p>
+            </div>
+
+            <div data-testid="answer-options" className="flex flex-col w-9/12">
               {answers && answers.map((answer = '', index) => (
                 <button
                   key={ index }
-                  className={ answer === results[page].correct_answer ? valid : error }
+                  className={
+                    `text-purple-700 hover:text-white border border-purple-700
+                    hover:bg-purple-800 font-medium rounded-lg text-sm px-4 py-4 
+                    text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400
+                    dark:hover:text-white dark:hover:bg-purple-500 
+                    dark:focus:ring-purple-900 cursor-pointer
+                    my-2.5 w-full break-all
+                    ${answer === results[page].correct_answer ? valid : error}`
+                  }
                   data-testid={ testAnswersTestID(answer) }
                   type="button"
                   disabled={ alternativeButtonDisable }
@@ -55,15 +86,14 @@ export default class Questions extends Component {
               ))}
             </div>
 
-            <Time
-              disableButtons={ disableButtons }
-              startTime={ startTime }
-              changeStartTime={ changeStartTime }
-            />
-
             {
               nextDisable && (
                 <button
+                  className="text-white bg-gradient-to-r from-purple-500 via-purple-600
+                  to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-purple-300
+                  dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg
+                  dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5
+                  text-center mr-2 mb-2"
                   type="button"
                   data-testid="btn-next"
                   onClick={ () => {
