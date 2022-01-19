@@ -10,7 +10,7 @@ class Ranking extends Component {
 
     return (
       <div>
-        <h1 data-testid="ranking-title">Ranking</h1>
+        <h1 data-testid="ranking-title" className="text-center text-4xl">Ranking</h1>
         <div>
           <button
             data-testid="btn-go-home"
@@ -20,7 +20,7 @@ class Ranking extends Component {
             Login
           </button>
         </div>
-        <ul>
+        <ul className="flex flex-col items-center">
           { JSON.parse(getRankingLocalStorage()).sort((a, b) => {
             if (a.score < b.score) {
               return 1;

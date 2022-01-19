@@ -20,6 +20,7 @@ class TriviaHome extends Component {
       alternativeButtonDisable: false,
       startTime: true,
       nextDisable: false,
+      answers: [],
     };
 
     this.nextPage = this.nextPage.bind(this);
@@ -29,10 +30,11 @@ class TriviaHome extends Component {
   async componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getGameApiThunk());
+    this.randonAlternatives();
   }
 
-  componentDidUpdate() {
-    const { code, dispatch } = this.props;
+  componentDidUpdate(prevProps) {
+    const { code, dispatch, results } = this.props;
     const FAIL = 3;
 
     if (code === FAIL) {
@@ -40,6 +42,10 @@ class TriviaHome extends Component {
       this.setLocalStore();
 
       dispatch(getGameApiThunk());
+    }
+
+    if (prevProps.results !== results) {
+      this.randonAlternatives();
     }
   }
 
@@ -121,6 +127,20 @@ class TriviaHome extends Component {
     }
   };
 
+  randonAlternatives = () => {
+    const { page } = this.state;
+    const { results, code } = this.props;
+    let answers = [];
+
+    if (results && code === 0) {
+      const wrongAnswer = [...results[page].incorrect_answers];
+      const correctAnswer = [results[page].correct_answer];
+      answers = this.randomQuestion(correctAnswer, wrongAnswer);
+    }
+
+    this.setState({ answers });
+  }
+
   testAnswersTestID(answer) {
     const { results } = this.props;
     const { page } = this.state;
@@ -138,7 +158,7 @@ class TriviaHome extends Component {
     return dataTestID;
   }
 
-  nextPage() {
+  async nextPage() {
     const { page } = this.state;
     const { history } = this.props;
     const MAXNUMBER = 4;
@@ -146,31 +166,20 @@ class TriviaHome extends Component {
     if (page === MAXNUMBER) {
       history.push('/feedback');
     } else {
-      this.setState((state) => {
+      await this.setState((state) => {
         const pageNumber = { page: state.page += 1 };
 
         return pageNumber;
       });
     }
+
+    this.randonAlternatives();
   }
 
   render() {
     const { results, code } = this.props;
-    const {
-      page,
-      valid,
-      error,
-      alternativeButtonDisable,
-      startTime,
-      nextDisable,
-    } = this.state;
-    let answers = [];
-
-    if (results && code === 0) {
-      const wrongAnswer = [...results[page].incorrect_answers];
-      const correctAnswer = [results[page].correct_answer];
-      answers = this.randomQuestion(correctAnswer, wrongAnswer);
-    }
+    const { page, valid, error, startTime, nextDisable, answers,
+      alternativeButtonDisable } = this.state;
 
     return (
       <>
@@ -213,7 +222,6 @@ TriviaHome.propTypes = {
   })),
   code: PropTypes.number,
   token: PropTypes.string,
-  // setScore: PropTypes.func,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
