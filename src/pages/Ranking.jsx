@@ -9,13 +9,18 @@ class Ranking extends Component {
     const NEGATIVEORDER = -1;
 
     return (
-      <div>
-        <h1 data-testid="ranking-title" className="text-center text-4xl">Ranking</h1>
+      <div className="bg-teal-600 min-h-screen pt-4">
+        <h1 data-testid="ranking-title" className="text-center text-4xl text-white font-bold">Ranking</h1>
         <div>
           <button
             data-testid="btn-go-home"
             type="button"
             onClick={ () => history.push('/') }
+            className="w-0/5 mt-5 ml-6 text-white bg-gradient-to-r from-purple-500
+            via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
+            focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg
+            shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+            font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           >
             Login
           </button>
@@ -30,8 +35,8 @@ class Ranking extends Component {
             }
             return 0;
           }).map((obj, key) => (
-            <div key={ key }>
-              <li><img src={ obj.picture } alt="" /></li>
+            <div key={ key } className="flex mb-4 gap-4 bg-teal-300 w-3/6 rounded-full ">
+              <li><img src={ obj.picture } alt="" className="rounded-full" /></li>
               <li data-testid={ `player-name-${key}` }>{obj.nome}</li>
               <li data-testid={ `player-score-${key}` }>{obj.score}</li>
             </div>))}
