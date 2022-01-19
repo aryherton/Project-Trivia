@@ -66,7 +66,7 @@ class Time extends Component {
   render() {
     const { time } = this.state;
     return (
-      <span id="time">{ time }</span>
+      <span id="time" className="my-6 text-2xl sm:text-lg">{time}</span>
     );
   }
 }

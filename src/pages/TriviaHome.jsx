@@ -7,6 +7,7 @@ import { setTokenLocalStorage, setRankingLocalStorage } from '../server';
 
 import Header from '../componentes/Header';
 import Questions from '../componentes/Questions';
+import RankingScores from '../componentes/RankingScore';
 
 let indice = 0;
 
@@ -182,27 +183,36 @@ class TriviaHome extends Component {
       alternativeButtonDisable } = this.state;
 
     return (
-      <>
-        <Header />
-        <Questions
-          results={ results }
-          code={ code }
-          page={ page }
-          valid={ valid }
-          error={ error }
-          alternativeButtonDisable={ alternativeButtonDisable }
-          startTime={ startTime }
-          nextDisable={ nextDisable }
-          answers={ answers }
-          testAnswersTestID={ this.testAnswersTestID }
-          verifyAnswer={ this.verifyAnswer }
-          clickAnswer={ this.clickAnswer }
-          setScoreRedux={ this.setScoreRedux }
-          disableButtons={ this.disableButtons }
-          changeStartTime={ this.changeStartTime }
-          nextPage={ this.nextPage }
-        />
-      </>
+      <div
+        className="h-screen w-full flex"
+      >
+        <div className="flex w-full sm:flex-col">
+          <div className="w-1/6 sm:hidden bg-gray-100">
+            <RankingScores />
+          </div>
+          <div className="flex flex-col items-center w-5/6 sm:w-full bg-slate-800">
+            <Header />
+            <Questions
+              results={ results }
+              code={ code }
+              page={ page }
+              valid={ valid }
+              error={ error }
+              alternativeButtonDisable={ alternativeButtonDisable }
+              startTime={ startTime }
+              nextDisable={ nextDisable }
+              answers={ answers }
+              testAnswersTestID={ this.testAnswersTestID }
+              verifyAnswer={ this.verifyAnswer }
+              clickAnswer={ this.clickAnswer }
+              setScoreRedux={ this.setScoreRedux }
+              disableButtons={ this.disableButtons }
+              changeStartTime={ this.changeStartTime }
+              nextPage={ this.nextPage }
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }
