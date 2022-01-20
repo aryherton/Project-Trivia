@@ -42,7 +42,13 @@ export default class ConfigTrivia extends Component {
     return (
       <div className="flex m-auto">
         <form className="flex flex-col" onChange={ this.setLocalState }>
-          <h1 className="text-white text-2xl my-10" data-testid="settings-title">Configuração</h1>
+          <h1
+            className="text-white text-2xl my-10"
+            data-testid="settings-title"
+          >
+            Configuração
+
+          </h1>
           <select className="p-4 rounded-xl" name="category">
             <option value="any">Any Category</option>
             <option value="9">General Knowledge</option>
@@ -82,7 +88,8 @@ export default class ConfigTrivia extends Component {
             <option value="boolean">True / False</option>
           </select>
           <button
-            className=" disabled:opacity-50 w-full text-xl mt-10 text-white bg-gradient-to-r from-purple-500
+            className=" disabled:opacity-50
+            w-full text-xl mt-10 text-white bg-gradient-to-r from-purple-500
               via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
               focus:ring-purple-300 dark:focus:ring-purple-800 hover:shadow-lg
               shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80

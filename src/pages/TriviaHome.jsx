@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getGameApiThunk, setLoginToken } from '../action/thunk';
 import { setScore } from '../action';
-import { setTokenLocalStorage, setRankingLocalStorage } from '../server';
+import { setTokenLocalStorage, setRankingLocalStorage,
+  getRankingLocalStorage } from '../server';
 
 import Header from '../componentes/Header';
 import Questions from '../componentes/Questions';
@@ -87,13 +88,11 @@ class TriviaHome extends Component {
   verifyAnswer = (initialize = true) => {
     if (initialize) {
       this.setState({
-        valid: 'valid',
-        error: 'error',
+        valid: 'valid', error: 'error',
       });
     } else {
       this.setState({
-        valid: '',
-        error: '',
+        valid: '', error: '',
       });
     }
   }
@@ -188,7 +187,7 @@ class TriviaHome extends Component {
       >
         <div className="flex w-full sm:flex-col">
           <div className="w-1/6 sm:hidden bg-gray-100">
-            <RankingScores />
+            {(getRankingLocalStorage()) && <RankingScores />}
           </div>
           <div
             className="flex flex-col items-center w-5/6 sm:w-full

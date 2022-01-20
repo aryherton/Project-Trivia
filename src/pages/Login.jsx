@@ -130,7 +130,8 @@ class Login extends Component {
                Play
              </button>
              <button
-               className="w-full mt-5 text-xl text-yellow-400 font-bold hover:text-white border
+               className="w-full mt-5 text-xl
+               text-yellow-400 font-bold hover:text-white border
               border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300
               rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
               dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white

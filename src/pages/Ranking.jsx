@@ -30,7 +30,10 @@ class Ranking extends Component {
           </button>
         </div>
         <div className="flex justify-center w-full">
-          <ul className="flex flex-col items-center bg-white bg-opacity-5 w-4/6 rounded-3xl py-6 mb-4">
+          <ul
+            className="flex flex-col items-center
+          bg-white bg-opacity-5 w-4/6 rounded-3xl py-6 mb-4"
+          >
             { JSON.parse(getRankingLocalStorage()).sort((a, b) => {
               if (a.score < b.score) {
                 return 1;
@@ -42,7 +45,8 @@ class Ranking extends Component {
             }).map((obj, key) => (
               <div
                 key={ key }
-                className="flex mb-4 gap-4 text-xl text-white bg-gradient-to-r from-gray-800 to-gray-900 w-4/5 rounded-full"
+                className="flex mb-4 gap-4 text-xl text-white
+                bg-gradient-to-r from-gray-800 to-gray-900 w-4/5 rounded-full"
               >
                 <li>
                   <img
