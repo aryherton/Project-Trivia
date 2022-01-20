@@ -34,17 +34,17 @@ export default class ConfigInfo extends Component {
     ];
     return (
       <div className="my-10 text-lg">
-        <p className="text-gray-600 p-1">
+        <p className="text-gray-400 p-1">
           <span className="font-bold">Category:</span>
           {' '}
           {categoryArr[category]}
         </p>
-        <p className="text-gray-600 p-1">
+        <p className="text-gray-400 p-1">
           <span className="font-bold">Difficulty:</span>
           {' '}
           {difficulty}
         </p>
-        <p className="text-gray-600 p-1">
+        <p className="text-gray-400 p-1">
           <span className="font-bold">Type:</span>
           {' '}
           {type}
