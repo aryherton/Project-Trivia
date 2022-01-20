@@ -40,7 +40,13 @@ class Feedback extends Component {
             >
               {this.getMessage(assertions)}
             </h1>
-            <div className="flex flex-col justify-center bg-yellow-500 w-60 h-60 rounded-full">
+            <div
+              className="
+                flex flex-col justify-center
+                bg-yellow-500
+                w-60 h-60
+                rounded-full"
+            >
               <span className="text-2xl leading-10" data-testid="feedback-total-score">
                 Score:
                 {' '}
