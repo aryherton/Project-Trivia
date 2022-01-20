@@ -27,12 +27,12 @@ class Feedback extends Component {
         <div
           className="
             flex flex-col justify-items-center justify-center
-            max-w-xl min-h-96
+            max-w-xl min-h
             bg-white
             shadow-xl rounded-3xl border"
         >
           <div
-            className="flex flex-col text-center"
+            className="flex flex-col text-center items-center"
           >
             <h1
               className="text-5xl p-10"
@@ -40,18 +40,20 @@ class Feedback extends Component {
             >
               {this.getMessage(assertions)}
             </h1>
-            <span className="text-2xl leading-10" data-testid="feedback-total-score">
-              Score:
-              {' '}
-              { score }
-            </span>
-            <span className="text-2xl p-5" data-testid="feedback-total-question">
-              Right awsers:
-              {' '}
-              { assertions }
-            </span>
+            <div className="flex flex-col justify-center bg-yellow-500 w-60 h-60 rounded-full">
+              <span className="text-2xl leading-10" data-testid="feedback-total-score">
+                Score:
+                {' '}
+                { score }
+              </span>
+              <span className="text-2xl p-5" data-testid="feedback-total-question">
+                Right awsers:
+                {' '}
+                { assertions }
+              </span>
+            </div>
           </div>
-          <div className="flex realtive m-20">
+          <div className="flex m-10">
             <button
               className="w-full text-xl mt-5 text-white bg-gradient-to-r from-purple-500
               via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
