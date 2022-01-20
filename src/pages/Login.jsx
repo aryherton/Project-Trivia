@@ -72,19 +72,19 @@ class Login extends Component {
      return (
        <div
          className="h-screen w-screen flex justify-center items-center
-         bg-gradient-to-r from-purple-900 to-gray-900"
+         bg-ultra-purple font-comic text-zinc-900"
        >
          <div
-           className="bg-gray-100 w-4/5 h-4/5 flex flex-row justify-center
-          shadow-2xl shadow-gray-900 rounded-3xl"
+           className="bg-royal-purple w-4/5 h-4/5 flex flex-row justify-center
+          shadow-lg shadow-evergreen rounded-3xl"
          >
            <div
              className="w-2/5 px-8 py-8 h-full"
            >
-             <h2 className="font-bold">SIGN IN</h2>
+             <h2 className="font-bold text-slate-50">SIGN IN</h2>
              <label
                htmlFor="nameUser"
-               className="block text-gray-500 font-bold mb-1 md:mb-0 mt-16"
+               className="block text-slate-50 font-bold mb-1 md:mb-0 mt-3.5"
              >
                Nome:
                <input
@@ -101,7 +101,7 @@ class Login extends Component {
              </label>
              <label
                htmlFor="emailUser"
-               className="block text-gray-500 font-bold mb-1 md:mb-0 mt-8"
+               className="block text-slate-50 font-bold mb-1 md:mb-0 mt-3.5"
              >
                Email:
                <input
@@ -146,7 +146,7 @@ class Login extends Component {
                {(!showConfig) && <ConfigInfo />}
              </div>
            </div>
-           <div className=" rounded-r-3xl flex w-3/5 bg-neutral-700">
+           <div className=" rounded-r-3xl flex w-3/5 bg-eletric-purple">
              { (showConfig) ? <ConfigTrivia renderConfig={ this.renderConfig } /> : <img
                src={ logo }
                alt="trivia-logo"

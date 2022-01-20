@@ -27,7 +27,18 @@
     <script>
       tailwind.config = {
         content: ['./src/**/*.{html,js}'],
-        theme: {     
+        theme: {
+          extend: {
+            colors: {
+              'ultra-purple': '#1f1147',
+              'royal-purple': '#32167C',
+              'eletric-purple': '#6a49f6',
+              'evergreen': '#69eabb',
+            },
+            fontFamily: {
+              'comic': ['Comic Sans MS', 'Comic Sans'],
+            },
+          },
           screens: {         
             'xl': {'max': '1279px'},
             'lg': {'max': '1023px'},
