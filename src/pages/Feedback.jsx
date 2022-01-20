@@ -20,8 +20,7 @@ class Feedback extends Component {
       <div
         className="
           flex flex-col items-center
-          min-h-full
-          h-screen
+          min-h-screen
           bg-gradient-to-r from-purple-900 to-gray-900"
       >
         <Header />
