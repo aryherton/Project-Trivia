@@ -60,7 +60,7 @@ export default class Questions extends Component {
                   key={ index }
                   className={
                     `text-white text-xl
-                    bg-gray-600 hover:bg-purple-800 font-medium rounded-lg text-sm px-4 py-4 
+                    bg-violet-700 hover:bg-evergreen hover:text-black font-medium rounded-lg text-sm px-4 py-4 
                     text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400
                     dark:hover:text-white dark:hover:bg-purple-500 
                     dark:focus:ring-purple-900 cursor-pointer

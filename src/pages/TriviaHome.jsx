@@ -191,7 +191,7 @@ class TriviaHome extends Component {
           </div>
           <div
             className="flex flex-col items-center w-5/6 sm:w-full
-           bg-gradient-to-r from-purple-900 to-gray-900"
+           bg-ultra-purple"
           >
             <Header />
             <Questions

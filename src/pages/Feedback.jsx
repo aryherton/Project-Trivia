@@ -21,15 +21,17 @@ class Feedback extends Component {
         className="
           flex flex-col items-center
           min-h-screen
-          bg-gradient-to-r from-purple-900 to-gray-900"
+          bg-ultra-purple"
       >
         <Header />
         <div
           className="
             flex flex-col justify-items-center justify-center
             max-w-xl min-h
-            bg-white
-            shadow-xl rounded-3xl border"
+            bg-conf bg-cover
+            text-white
+            shadow-2xl rounded-3xl
+            shadow-gray-700"
         >
           <div
             className="flex flex-col text-center items-center"
@@ -47,8 +49,7 @@ class Feedback extends Component {
                 w-60 h-60
                 rounded-full"
             >
-              <span className="text-2xl leading-10" data-testid="feedback-total-score">
-                Score:
+              <span className="mt-12 text-8xl leading-9" data-testid="feedback-total-score">
                 {' '}
                 { score }
               </span>
@@ -62,8 +63,8 @@ class Feedback extends Component {
           <div className="flex m-10">
             <button
               className="w-full text-xl mt-5 text-white bg-gradient-to-r from-purple-500
-              via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4
-              focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg
+              via-purple-600 to-purple-700 focus:bg-gradient-to-br hover:ring-4
+              hover:ring-purple-300 dark:hover:ring-purple-800 shadow-lg
               shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
               font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               data-testid="btn-play-again"
@@ -74,11 +75,10 @@ class Feedback extends Component {
             </button>
             <div />
             <button
-              className="w-full mt-5 text-xl text-yellow-400 hover:text-white border
-              border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300
-              font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
-              dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white
-              dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
+              className="w-full text-xl mt-5 text-black bg-evergreen focus:bg-gradient-to-br from-evergreen via-teal-300 to -teal-600 hover:ring-4
+              hover:ring-blue-300 dark:hover:ring-blue-800 shadow-lg
+              shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+              font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               data-testid="btn-ranking"
               type="button"
               onClick={ () => history.push('/ranking') }
