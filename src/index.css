@@ -17,5 +17,5 @@ code {
 }
 
 .error {
-  border: 3px solid rgb(165, 4, 4);
+  background-color: rgb(104, 104, 104);
 }

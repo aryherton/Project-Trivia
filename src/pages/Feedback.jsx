@@ -37,7 +37,7 @@ class Feedback extends Component {
             className="flex flex-col text-center items-center"
           >
             <h1
-              className="text-5xl p-10"
+              className="text-5xl p-10 font-bebas"
               data-testid="feedback-text"
             >
               {this.getMessage(assertions)}
@@ -49,11 +49,11 @@ class Feedback extends Component {
                 w-60 h-60
                 rounded-full"
             >
-              <span className="mt-12 text-8xl leading-9" data-testid="feedback-total-score">
+              <span className="mt-12 text-8xl leading-10" data-testid="feedback-total-score">
                 {' '}
                 { score }
               </span>
-              <span className="text-2xl p-5" data-testid="feedback-total-question">
+              <span className="font-bebas text-3xl p-5" data-testid="feedback-total-question">
                 Right awsers:
                 {' '}
                 { assertions }

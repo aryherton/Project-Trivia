@@ -16,10 +16,10 @@ class Header extends Component {
             data-testid="header-profile-picture"
             src={ `https://www.gravatar.com/avatar/${md5(gravatarEmail).toString()}` }
             alt="imgUser"
-            className="rounded-full w-8 mx-5"
+            className="rounded-full w-20 mx-5"
           />
           <ul className="flex justify-center items-center">
-            <li className="mx-5" data-testid="header-player-name">{nome}</li>
+            <li className="text-xl mx-5" data-testid="header-player-name">{nome}</li>
             <li data-testid="header-score">{ score }</li>
           </ul>
         </div>

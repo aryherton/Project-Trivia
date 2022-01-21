@@ -32,7 +32,7 @@ export default class Questions extends Component {
           <div className="flex flex-col flex-auto justify-center items-center w-full">
             <div className="flex justify-between items-center w-9/12 text-gray-200">
               <h2
-                className="my-2.5 text-2xl font-bold sm:text-lg"
+                className="my-2.5 text-5xl font-bebas sm:text-lg"
                 data-testid="question-category"
               >
                 {decodeURIComponent(results[page].category)}
