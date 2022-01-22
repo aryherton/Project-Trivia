@@ -147,7 +147,7 @@ class Login extends Component {
               Config
             </button>
             <div>
-              {(!showConfig) && <ConfigInfo />}
+              {(!showConfig) && <ConfigInfo renderConfig={ this.renderConfig } />}
             </div>
           </div>
           <div

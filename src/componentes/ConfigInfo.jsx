@@ -1,7 +1,23 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { getConfigLocalStorage } from '../server';
+import { deleteConfigLocalStorage, getConfigLocalStorage } from '../server';
+import trash from '../img/trash.png';
 
 export default class ConfigInfo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      delete: false,
+    };
+  }
+
+  changeDelete = () => {
+    this.setState((state) => (
+      { delete: !state.delete }
+    ));
+  }
+
   renderPage = () => {
     const configLocalStorage = getConfigLocalStorage();
     const { category, difficulty, type } = configLocalStorage;
@@ -49,6 +65,15 @@ export default class ConfigInfo extends Component {
           {' '}
           {type}
         </p>
+        <button
+          type="button"
+          onClick={ () => {
+            deleteConfigLocalStorage();
+            this.changeDelete();
+          } }
+        >
+          <img src={ trash } alt="trash" className="w-8" />
+        </button>
       </div>);
   }
 
@@ -60,3 +85,7 @@ export default class ConfigInfo extends Component {
     );
   }
 }
+
+ConfigInfo.propTypes = {
+  renderConfig: PropTypes.func,
+}.isRequired;

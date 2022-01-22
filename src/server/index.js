@@ -50,3 +50,7 @@ export const getScoreLocalStorage = () => localStorage.getItem('score');
 export const setConfigLocalStorage = (arrConfig) => {
   localStorage.setItem('config', JSON.stringify(arrConfig));
 };
+
+export const deleteConfigLocalStorage = () => {
+  localStorage.removeItem('config');
+};
