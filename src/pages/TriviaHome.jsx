@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getGameApiThunk, setLoginToken } from '../action/thunk';
 import { setScore } from '../action';
 import { setTokenLocalStorage, setRankingLocalStorage,
-  getRankingLocalStorage } from '../server';
+  getRankingLocalStorage, getTokenLocalStorage } from '../server';
 
 import Header from '../componentes/Header';
 import Questions from '../componentes/Questions';
@@ -29,7 +29,7 @@ class TriviaHome extends Component {
     this.testAnswersTestID = this.testAnswersTestID.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getGameApiThunk());
     this.randonAlternatives();
@@ -39,12 +39,12 @@ class TriviaHome extends Component {
     const { code, dispatch, results } = this.props;
     const FAIL = 3;
 
-    if (code === FAIL) {
-      dispatch(setLoginToken());
-      this.setLocalStore();
+    // if (code === FAIL) {
+    //   dispatch(setLoginToken());
+    //   this.setLocalStore();
 
-      dispatch(getGameApiThunk());
-    }
+    //   dispatch(getGameApiThunk());
+    // }
 
     if (prevProps.results !== results) {
       this.randonAlternatives();
@@ -177,44 +177,47 @@ class TriviaHome extends Component {
   }
 
   render() {
-    const { results, code } = this.props;
+    const { results, code, history } = this.props;
     const { page, valid, error, startTime, nextDisable, answers,
       alternativeButtonDisable } = this.state;
 
+    const token = getTokenLocalStorage();
+    console.log(token);
+
     return (
-      <div
-        className="h-screen w-full flex"
-      >
-        <div className="flex w-full sm:flex-col">
-          <div className="w-1/6 sm:hidden bg-gray-100">
-            {(getRankingLocalStorage()) && <RankingScores />}
-          </div>
-          <div
-            className="flex flex-col items-center w-5/6 sm:w-full
-           bg-ultra-purple"
-          >
-            <Header />
-            <Questions
-              results={ results }
-              code={ code }
-              page={ page }
-              valid={ valid }
-              error={ error }
-              alternativeButtonDisable={ alternativeButtonDisable }
-              startTime={ startTime }
-              nextDisable={ nextDisable }
-              answers={ answers }
-              testAnswersTestID={ this.testAnswersTestID }
-              verifyAnswer={ this.verifyAnswer }
-              clickAnswer={ this.clickAnswer }
-              setScoreRedux={ this.setScoreRedux }
-              disableButtons={ this.disableButtons }
-              changeStartTime={ this.changeStartTime }
-              nextPage={ this.nextPage }
-            />
-          </div>
-        </div>
-      </div>
+      token !== null
+        ? (
+          <div className="h-screen w-full flex">
+            <div className="flex w-full sm:flex-col">
+              <div className="w-1/6 sm:hidden bg-gray-100">
+                {(getRankingLocalStorage()) && <RankingScores />}
+              </div>
+              <div
+                className="flex flex-col items-center w-5/6 sm:w-full
+            bg-ultra-purple"
+              >
+                <Header />
+                <Questions
+                  results={ results }
+                  code={ code }
+                  page={ page }
+                  valid={ valid }
+                  error={ error }
+                  alternativeButtonDisable={ alternativeButtonDisable }
+                  startTime={ startTime }
+                  nextDisable={ nextDisable }
+                  answers={ answers }
+                  testAnswersTestID={ this.testAnswersTestID }
+                  verifyAnswer={ this.verifyAnswer }
+                  clickAnswer={ this.clickAnswer }
+                  setScoreRedux={ this.setScoreRedux }
+                  disableButtons={ this.disableButtons }
+                  changeStartTime={ this.changeStartTime }
+                  nextPage={ this.nextPage }
+                />
+              </div>
+            </div>
+          </div>) : (history.push('/notfound'))
     );
   }
 }
