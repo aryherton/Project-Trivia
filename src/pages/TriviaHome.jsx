@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getGameApiThunk, setLoginToken } from '../action/thunk';
+import { getGameApiThunk } from '../action/thunk';
+// import { getGameApiThunk, setLoginToken } from '../action/thunk';
 import { setScore } from '../action';
 import { setTokenLocalStorage, setRankingLocalStorage,
   getRankingLocalStorage, getTokenLocalStorage } from '../server';
@@ -36,15 +37,16 @@ class TriviaHome extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { code, dispatch, results } = this.props;
+    const { results } = this.props;
+    /* const { code, dispatch, results } = this.props;
     const FAIL = 3;
 
-    // if (code === FAIL) {
-    //   dispatch(setLoginToken());
-    //   this.setLocalStore();
+    if (code === FAIL) {
+      dispatch(setLoginToken());
+      this.setLocalStore();
 
-    //   dispatch(getGameApiThunk());
-    // }
+      dispatch(getGameApiThunk());
+    } */
 
     if (prevProps.results !== results) {
       this.randonAlternatives();
