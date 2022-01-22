@@ -183,9 +183,9 @@ class TriviaHome extends Component {
 
     return (
       <div
-        className="h-screen w-full flex"
+        className="min-h-screen w-full flex"
       >
-        <div className="flex w-full sm:flex-col">
+        <div className="flex w-full sm:flex-col sm:h-full">
           <div className="w-1/6 sm:hidden bg-gray-100">
             {(getRankingLocalStorage()) && <RankingScores />}
           </div>

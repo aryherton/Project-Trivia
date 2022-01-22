@@ -40,10 +40,14 @@ export default class ConfigTrivia extends Component {
     const { saveSucessfull } = this.state;
     const { renderConfig } = this.props;
     return (
-      <div className="flex m-auto">
+      <div
+        className="flex m-auto bg-style-config w-full h-full
+        justify-center items-center rounded-r-3xl bg-cover font-bebas"
+      >
         <form className="flex flex-col" onChange={ this.setLocalState }>
           <h1
-            className="text-white text-2xl my-10"
+            className="text-white text-2xl my-10 font-bold p-3
+            bg-ultra-purple rounded-tl-2xl rounded-r-2xl"
             data-testid="settings-title"
           >
             Configuração

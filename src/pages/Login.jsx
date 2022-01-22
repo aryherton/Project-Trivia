@@ -72,19 +72,19 @@ class Login extends Component {
      return (
        <div
          className="h-screen w-screen flex justify-center items-center
-         bg-ultra-purple font-comic text-zinc-900"
+         bg-ultra-purple font-bebas text-zinc-900 text-2xl"
        >
          <div
            className="bg-royal-purple w-4/5 h-4/5 flex flex-row justify-center
-          shadow-lg shadow-evergreen rounded-3xl"
+          shadow-lg shadow-neutral-900 rounded-3xl"
          >
            <div
-             className="w-2/5 px-8 py-8 h-full"
+             className="w-2/5 px-8 py-8 h-full text-slate-50"
            >
              <h2 className="font-bold text-slate-50">SIGN IN</h2>
              <label
                htmlFor="nameUser"
-               className="block text-slate-50 font-bold mb-1 md:mb-0 mt-3.5"
+               className="block font-bold mb-1 md:mb-0 mt-3.5"
              >
                Nome:
                <input
@@ -94,14 +94,14 @@ class Login extends Component {
                  value={ nome }
                  onChange={ this.handleChange }
                  data-testid="input-player-name"
-                 className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600
+                 className="px-3 py-3 placeholder-blueGray-300 text-neutral-800
                 relative bg-white bg-white rounded text-sm border-0 shadow
-                outline-none focus:outline-none focus:ring w-full"
+                outline-none focus:outline-none focus:ring w-full font-comic"
                />
              </label>
              <label
                htmlFor="emailUser"
-               className="block text-slate-50 font-bold mb-1 md:mb-0 mt-3.5"
+               className="block font-bold mb-1 md:mb-0 mt-3.5"
              >
                Email:
                <input
@@ -111,9 +111,9 @@ class Login extends Component {
                  value={ gravatarEmail }
                  onChange={ this.handleChange }
                  data-testid="input-gravatar-email"
-                 className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600
+                 className="px-3 py-3 placeholder-blueGray-300 text-neutral-800
                 relative bg-white bg-white rounded text-sm border-0 shadow
-                outline-none focus:outline-none focus:ring w-full"
+                outline-none focus:outline-none focus:ring w-full font-comic"
                />
              </label>
              <button
@@ -146,7 +146,7 @@ class Login extends Component {
                {(!showConfig) && <ConfigInfo />}
              </div>
            </div>
-           <div className=" rounded-r-3xl flex w-3/5 bg-eletric-purple">
+           <div className=" rounded-r-3xl flex justify-center items-center w-3/5 bg-style-yellow bg-center bg-cover">
              { (showConfig) ? <ConfigTrivia renderConfig={ this.renderConfig } /> : <img
                src={ logo }
                alt="trivia-logo"
