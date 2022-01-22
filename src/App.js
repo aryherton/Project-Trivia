@@ -9,6 +9,7 @@ import Feedback from './pages/Feedback';
 import NotFound from './pages/NotFound';
 import { getTokenLocalStorage } from './server';
 
+// Verifica a existencia do token no localStorage, para renderizar componentes
 function checkTokenRenderComponent() {
   const token = getTokenLocalStorage();
   console.log(token);

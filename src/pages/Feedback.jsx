@@ -49,11 +49,17 @@ class Feedback extends Component {
                 w-60 h-60
                 rounded-full"
             >
-              <span className="mt-12 text-8xl leading-10" data-testid="feedback-total-score">
+              <span
+                className="mt-12 text-8xl leading-10"
+                data-testid="feedback-total-score"
+              >
                 {' '}
                 { score }
               </span>
-              <span className="font-bebas text-3xl p-5" data-testid="feedback-total-question">
+              <span
+                className="font-bebas text-3xl p-5"
+                data-testid="feedback-total-question"
+              >
                 Right awsers:
                 {' '}
                 { assertions }
@@ -75,10 +81,15 @@ class Feedback extends Component {
             </button>
             <div />
             <button
-              className="w-full text-xl mt-5 text-black bg-evergreen focus:bg-gradient-to-br from-evergreen via-teal-300 to -teal-600 hover:ring-4
-              hover:ring-blue-300 dark:hover:ring-blue-800 shadow-lg
-              shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
-              font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              className="
+                w-full
+                text-xl mt-5
+                text-black
+                bg-evergreen focus:bg-gradient-to-br
+                from-evergreen via-teal-300 to -teal-600 hover:ring-4
+                hover:ring-blue-300 dark:hover:ring-blue-800 shadow-lg
+                shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               data-testid="btn-ranking"
               type="button"
               onClick={ () => history.push('/ranking') }
