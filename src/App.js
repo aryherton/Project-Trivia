@@ -7,14 +7,27 @@ import TriviaHome from './pages/TriviaHome';
 import Ranking from './pages/Ranking';
 import Feedback from './pages/Feedback';
 import NotFound from './pages/NotFound';
+import { getTokenLocalStorage } from './server';
+
+function checkTokenRenderComponent() {
+  const token = getTokenLocalStorage();
+  console.log(token);
+  if (token) {
+    return (
+      <>
+        <Route path="/triviahome" component={ TriviaHome } />
+        <Route path="/ranking" component={ Ranking } />
+        <Route path="/feedback" component={ Feedback } />
+      </>
+    );
+  }
+}
 
 export default function App() {
   return (
     <Switch>
       <Route exact path="/" component={ Login } />
-      <Route path="/triviahome" component={ TriviaHome } />
-      <Route path="/ranking" component={ Ranking } />
-      <Route path="/feedback" component={ Feedback } />
+      { checkTokenRenderComponent() }
       <Route path="*" component={ NotFound } />
     </Switch>
   );
