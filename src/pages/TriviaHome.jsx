@@ -184,7 +184,6 @@ class TriviaHome extends Component {
       alternativeButtonDisable } = this.state;
 
     const token = getTokenLocalStorage();
-    console.log(token);
 
     return (
       token !== null

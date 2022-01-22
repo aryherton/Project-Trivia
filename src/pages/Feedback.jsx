@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Header from '../componentes/Header';
+import audioValid from '../audio/ranking.mp3';
+import audioError from '../audio/ranking_erro.mp3';
+
+const music = new Audio(audioValid);
+const erro = new Audio(audioError);
 
 class Feedback extends Component {
   getMessage = (punctuation) => {
@@ -13,6 +18,18 @@ class Feedback extends Component {
 
     return RETURNED_MENSAGE;
   };
+
+  playMusic = (punctuation) => {
+    const message = this.getMessage(punctuation);
+
+    if (message === 'Well Done!') {
+      music.play();
+    } else {
+      erro.play();
+    }
+
+    return message;
+  }
 
   render() {
     const { history, score, assertions } = this.props;
@@ -40,7 +57,7 @@ class Feedback extends Component {
               className="text-5xl p-10 font-bebas"
               data-testid="feedback-text"
             >
-              {this.getMessage(assertions)}
+              {this.playMusic(assertions)}
             </h1>
             <div
               className="

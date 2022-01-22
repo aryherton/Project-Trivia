@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Time from './Time';
+import audioValid from '../audio/valid.mp3';
+import audioError from '../audio/error.mp3';
+
+const music = new Audio(audioValid);
+const erro = new Audio(audioError);
 
 export default class Questions extends Component {
+  playMusic = (answer) => {
+    const { results, page } = this.props;
+    if (answer === results[page].correct_answer) {
+      music.play();
+    } else {
+      erro.play();
+    }
+  }
+
   render() {
     const {
       results,
@@ -77,6 +91,7 @@ export default class Questions extends Component {
                       results[page].correct_answer,
                       results[page].difficulty,
                     );
+                    this.playMusic(answer);
                   } }
                 >
                   {decodeURIComponent(answer)}
