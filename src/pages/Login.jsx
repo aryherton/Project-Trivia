@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { render } from 'react-dom';
 import { setLoginToken } from '../action/thunk';
 import { setTokenLocalStorage } from '../server';
 import { setPlayer } from '../action';
@@ -33,11 +32,10 @@ class Login extends Component {
   checkButton = () => {
     const { nome, gravatarEmail } = this.state;
 
-    // const regex = /\S+@\S+\.\S+/;
-    // const validEmail = regex.test(email);
-    // console.log(validEmail);
+    const regex = /\S+@\S+\.\S+/;
+    const validEmail = regex.test(gravatarEmail);
 
-    if (gravatarEmail && nome) {
+    if (validEmail && nome) {
       return false;
     }
 
@@ -146,7 +144,10 @@ class Login extends Component {
                {(!showConfig) && <ConfigInfo />}
              </div>
            </div>
-           <div className=" rounded-r-3xl flex justify-center items-center w-3/5 bg-style-yellow bg-center bg-cover">
+           <div
+             className=" rounded-r-3xl flex justify-center items-center w-3/5
+           bg-style-yellow bg-center bg-cover"
+           >
              { (showConfig) ? <ConfigTrivia renderConfig={ this.renderConfig } /> : <img
                src={ logo }
                alt="trivia-logo"

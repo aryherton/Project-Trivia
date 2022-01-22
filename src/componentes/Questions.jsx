@@ -60,7 +60,8 @@ export default class Questions extends Component {
                   key={ index }
                   className={
                     `text-white text-xl
-                    bg-violet-700 hover:bg-evergreen hover:text-black font-medium rounded-lg text-sm px-4 py-4 
+                    bg-violet-700 hover:bg-evergreen hover:text-black font-medium 
+                    rounded-lg text-sm px-4 py-4 
                     text-center mr-2 mb-2 cursor-pointer
                     my-2.5 w-full break-all 
                     ${answer === results[page].correct_answer ? valid : error}`
