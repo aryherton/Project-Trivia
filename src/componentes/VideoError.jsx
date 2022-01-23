@@ -15,7 +15,7 @@ class VideoError extends Component {
   }
 
   changeLoad = () => {
-    const maxTimeOut = 3000;
+    const maxTimeOut = 2000;
     setTimeout(() => {
       this.setState({ load: false });
     }, maxTimeOut);
