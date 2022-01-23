@@ -36,6 +36,11 @@ class Feedback extends Component {
     return message;
   }
 
+  redirectPage = (path) => {
+    const { history } = this.props;
+    history.push(path);
+  };
+
   render() {
     const { history, assertions } = this.props;
     return (
@@ -48,7 +53,10 @@ class Feedback extends Component {
         >
           <Header />
           <div className="flex justify-end items-center">
-            <FeedbackScore playMusic={ this.playMusic } />
+            <FeedbackScore
+              playMusic={ this.playMusic }
+              redirectPage={ this.redirectPage }
+            />
           </div>
           <aside
             className="absolute top-1/3 left-2/3"

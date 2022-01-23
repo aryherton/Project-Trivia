@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class Feedback extends Component {
   render() {
-    const { score, assertions, history, playMusic } = this.props;
+    const { score, assertions, history, playMusic, redirectPage } = this.props;
     return (
       <div
         className="
@@ -57,7 +57,7 @@ class Feedback extends Component {
           font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             data-testid="btn-play-again"
             type="button"
-            onClick={ () => history.push('/') }
+            onClick={ () => redirectPage('/') }
           >
             Play Again
           </button>
@@ -74,7 +74,7 @@ class Feedback extends Component {
             font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             data-testid="btn-ranking"
             type="button"
-            onClick={ () => history.push('/ranking') }
+            onClick={ () => redirectPage('/ranking') }
           >
             Ranking
           </button>
