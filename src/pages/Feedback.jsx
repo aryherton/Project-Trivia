@@ -47,10 +47,14 @@ class Feedback extends Component {
           bg-ultra-purple"
         >
           <Header />
-          <div className="Flex">
+          <div className="flex justify-end items-center">
             <FeedbackScore playMusic={ this.playMusic } />
-            { this.getMessage(assertions) !== WELLDONE && <VideoError /> }
           </div>
+          <aside
+            className="absolute top-1/3 left-2/3"
+          >
+            { this.getMessage(assertions) !== WELLDONE && <VideoError /> }
+          </aside>
         </div>
       ) : (<div>{history.push('/NotFound')}</div>)
     );
