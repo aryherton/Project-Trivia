@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 
 import Header from '../componentes/Header';
 import audioValid from '../audio/ranking.mp3';
-import audioError from '../audio/ranking_erro.mp3';
+// import audioError from '../audio/ranking_erro.mp3';
 import { getTokenLocalStorage } from '../server';
+import VideoError from '../componentes/VideoError';
 
 const music = new Audio(audioValid);
-const erro = new Audio(audioError);
+// const erro = new Audio(audioError);
+const WELLDONE = 'Well Done!';
 
 class Feedback extends Component {
   getMessage = (punctuation) => {
     const MESSAGE_01 = 'Could be better...';
-    const MESSAGE_02 = 'Well Done!';
+    const MESSAGE_02 = WELLDONE;
     const NUMBER = 3;
     const RETURNED_MENSAGE = (punctuation < NUMBER) ? MESSAGE_01 : MESSAGE_02;
 
@@ -23,11 +25,11 @@ class Feedback extends Component {
   playMusic = (punctuation) => {
     const message = this.getMessage(punctuation);
 
-    if (message === 'Well Done!') {
+    if (message === WELLDONE) {
       music.play();
-    } else {
+    } /* else {
       erro.play();
-    }
+    } */
 
     return message;
   }
@@ -43,6 +45,8 @@ class Feedback extends Component {
           bg-ultra-purple"
         >
           <Header />
+          { this.getMessage(assertions) !== WELLDONE && <VideoError /> }
+
           <div
             className="
             flex flex-col justify-items-center justify-center
