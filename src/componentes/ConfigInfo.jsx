@@ -49,31 +49,35 @@ export default class ConfigInfo extends Component {
 
     ];
     return (
-      <div className="my-10 text-lg">
-        <p className="text-gray-400 p-1">
-          <span className="font-bold">Category:</span>
-          {' '}
-          {categoryArr[category]}
-        </p>
-        <p className="text-gray-400 p-1">
-          <span className="font-bold">Difficulty:</span>
-          {' '}
-          {difficulty}
-        </p>
-        <p className="text-gray-400 p-1">
-          <span className="font-bold">Type:</span>
-          {' '}
-          {type}
-        </p>
-        <button
-          type="button"
-          onClick={ () => {
-            deleteConfigLocalStorage();
-            this.changeDelete();
-          } }
-        >
-          <img src={ trash } alt="trash" className="w-8" />
-        </button>
+      <div className="flex my-10 text-lg">
+        <div>
+          <p className="font-mono text-xl text-yellow-400 p-1">
+            <span className="font-bold">Category:</span>
+            {' '}
+            <span className="text-yellow-600">{categoryArr[category]}</span>
+          </p>
+          <p className="font-mono text-xl text-yellow-400 p-1">
+            <span className="font-bold">Difficulty:</span>
+            {' '}
+            <span className="text-yellow-600">{difficulty}</span>
+          </p>
+          <p className="font-mono text-xl text-yellow-400 p-1">
+            <span className="font-bold">Type:</span>
+            {' '}
+            <span className="text-yellow-600">{type}</span>
+          </p>
+        </div>
+        <div className="ml-10">
+          <button
+            type="button"
+            onClick={ () => {
+              deleteConfigLocalStorage();
+              this.changeDelete();
+            } }
+          >
+            <img src={ trash } alt="trash" className="w-10" />
+          </button>
+        </div>
       </div>);
   }
 

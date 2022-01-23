@@ -64,7 +64,11 @@ export default class Questions extends Component {
                 data-testid="question-text"
                 className="break-all text-center"
               >
-                {decodeURIComponent(results[page].question)}
+                {/* {decodeURIComponent(results[page].question)} */}
+                {new
+                DOMParser()
+                  .parseFromString(decodeURIComponent(results[page].question), 'text/html')
+                  .documentElement.textContent}
               </p>
             </div>
 
@@ -94,7 +98,11 @@ export default class Questions extends Component {
                     this.playMusic(answer);
                   } }
                 >
-                  {decodeURIComponent(answer)}
+                  {/* {decodeURIComponent(answer)} */}
+                  {new
+                  DOMParser()
+                    .parseFromString(decodeURIComponent(answer), 'text/html')
+                    .documentElement.textContent}
 
                 </button>
               ))}
