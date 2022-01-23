@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setLoginToken } from '../action/thunk';
-import { setTokenLocalStorage, getTokenLocalStorage } from '../server';
+import { setTokenLocalStorage } from '../server';
 import { setPlayer } from '../action';
 import logo from '../trivia.png';
 import ConfigTrivia from '../componentes/ConfigTrivia';
