@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class Feedback extends Component {
   render() {
-    const { score, assertions, history, playMusic, redirectPage } = this.props;
+    const { score, assertions, playMusic, redirectPage } = this.props;
     return (
       <div
         className="
