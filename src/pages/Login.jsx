@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setLoginToken } from '../action/thunk';
-import { setTokenLocalStorage } from '../server';
+import { setTokenLocalStorage, getTokenLocalStorage } from '../server';
 import { setPlayer } from '../action';
 import logo from '../trivia.png';
 import ConfigTrivia from '../componentes/ConfigTrivia';
@@ -24,9 +24,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    // const { dispatch } = this.props;
-
-    // dispatch(setLoginToken());
+    this.removeToken();
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -60,6 +58,10 @@ class Login extends Component {
 
     setTokenLocalStorage(token);
   }
+
+  removeToken = () => {
+    localStorage.removeItem('token');
+  };
 
   renderConfig = () => {
     const { showConfig } = this.state;
