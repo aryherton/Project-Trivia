@@ -75,7 +75,7 @@ class Login extends Component {
 
     return (
       <div
-        className="h-screen w-screen flex justify-center items-center
+        className="min-h-screen w-screen flex justify-center items-center
          bg-ultra-purple font-bebas text-zinc-900 text-2xl"
       >
         <div
