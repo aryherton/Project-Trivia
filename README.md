@@ -8,7 +8,7 @@ https://trivia-ajustes.vercel.app/
 ## Integrates:
   Ary Barbosa https://github.com/aryherton<br />
   Orlando Dantas https://github.com/orlandodantas<br />
-  Bruno Melo (https://github.com/melobrunoti)<br />
+  Bruno Melo https://github.com/melobrunoti<br />
   Bruno Matumoto https://github.com/bmatumoto<br />
 
 ## Demonstramento(gif)
