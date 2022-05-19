@@ -12,5 +12,5 @@ https://trivia-ajustes.vercel.app/
   Bruno Matumoto https://github.com/bmatumoto<br />
 
 ## Demonstramento(gif)
-  ![Jogo Trivia](./src/img/trivia-grupo-6.gif)
+  ![Jogo Trivia](./src/img/trivia-grupo-6.gif)<br />
   https://trivia-ajustes.vercel.app/
